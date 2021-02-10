@@ -42,8 +42,11 @@ def calc_damage():
 
 
 def calc_jade():
-    current = int(skill_level_entry.get())
-    goal = int(goal_entry.get())
+    units = float(units_entry.get())
+    current = ceil(float(skill_level_entry.get())/units)
+    print(current)
+    goal = ceil(float(goal_entry.get())/units)
+    print(goal)
     discount = 1-float(joaj_entry.get())/100
     jade_total = 0
     for i in range(current+1, goal+1):
@@ -98,18 +101,22 @@ damage_button.grid(row=7, column=1)
 # calculate jadeskill cost in a range
 skill_level_label = Label(root, text="Current Jade")
 goal_label = Label(root, text="Goal")
+units_label = Label(root, text="Unit")
 joaj_label = Label(root, text="JoaJ")
 skill_level_entry = Entry(root)
 goal_entry = Entry(root)
+units_entry = Entry(root)
 joaj_entry = Entry(root)
 jade_button = Button(root, text="Confirm", command=calc_jade)
 skill_level_label.grid(row=1, column=2)
 skill_level_entry.grid(row=2, column=2)
 goal_label.grid(row=3, column=2)
 goal_entry.grid(row=4, column=2)
-joaj_label.grid(row=5, column=2)
-joaj_entry.grid(row=6, column=2)
-jade_button.grid(row=7, column=2)
+units_label.grid(row=5, column=2)
+units_entry.grid(row=6, column=2)
+joaj_label.grid(row=7, column=2)
+joaj_entry.grid(row=8, column=2)
+jade_button.grid(row=9, column=2)
 
 
 # calculate equipment upgrade cost from any level range
