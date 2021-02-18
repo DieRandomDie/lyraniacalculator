@@ -36,7 +36,7 @@ def calc_damage():
         seconds = (minutes * 60)
     else:
         seconds = (minutes * 60) + int(seconds_entry.get())
-    health = int(health_entry.get())
+    health = int(health_entry.get().replace(',', ''))
     attacks = seconds / 6  # is this 5 or 6????
     damage_req = ceil(health / attacks)
     damage_req_label = Label(root, text="Damage Req.: " + f"{damage_req:,}")
