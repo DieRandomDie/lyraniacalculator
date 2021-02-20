@@ -6,7 +6,7 @@
 
 
 from tkinter import *
-from math import ceil, pow
+from math import ceil
 
 root = Tk()
 root.title("Lyrania Calculator")
@@ -64,7 +64,7 @@ def calc_equip():
     discount = 1 - float(blacksmith_entry.get()) / 100
     cost_total = 0
     for i in range(current + 1, goal + 1):
-        cost_total += ((0.005 * pow(i, 2)) - .0101 * i + .0052) * discount
+        cost_total += ((0.005 * (i ** 2)) - .0101 * i + .0052) * discount
         print(cost_total)
     cost_total_label = Label(root, text="Total cost: " + f"{cost_total:,.4f}" + "p")
     cost_total_label.grid(row=0, column=3, padx=5, pady=5)
